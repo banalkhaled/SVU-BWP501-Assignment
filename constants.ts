@@ -1,11 +1,7 @@
-
 import { Event, Participant, EventCategory } from './types';
 
 export const PARTICIPANTS: Participant[] = [
-  { id: '20230101', name: 'أحمد المحمد', role: 'قائد الفريق' },
-  { id: '20230102', name: 'فاطمة الزهراء', role: 'مطور الواجهة الأمامية' },
-  { id: '20230103', name: 'علي الحسن', role: 'مصمم UI/UX' },
-  { id: '20230104', name: 'سارة العبدالله', role: 'مسؤول قاعدة البيانات' },
+  { id: 'bana_274917', name: 'بانه الخالد', role: 'مصمم ومطور المشروع' },
 ];
 
 export const MOCK_EVENTS: Event[] = [
