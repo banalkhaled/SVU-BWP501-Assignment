@@ -1,0 +1,75 @@
+
+import { Event, Participant, EventCategory } from './types';
+
+export const PARTICIPANTS: Participant[] = [
+  { id: '20230101', name: 'أحمد المحمد', role: 'قائد الفريق' },
+  { id: '20230102', name: 'فاطمة الزهراء', role: 'مطور الواجهة الأمامية' },
+  { id: '20230103', name: 'علي الحسن', role: 'مصمم UI/UX' },
+  { id: '20230104', name: 'سارة العبدالله', role: 'مسؤول قاعدة البيانات' },
+];
+
+export const MOCK_EVENTS: Event[] = [
+  {
+    id: 1,
+    title: 'مهرجان الموسيقى العربية',
+    short_description: 'أمسية طربية مع ألمع نجوم الموسيقى في الوطن العربي.',
+    description: 'انضموا إلينا في مهرجان الموسيقى العربية السنوي للاستمتاع بأروع الألحان والأصوات. يضم المهرجان حفلات موسيقية حية وورش عمل تفاعلية مع فنانين مشهورين.',
+    category: EventCategory.Music,
+    location: 'دار الأوبرا',
+    event_date: '2025-10-20T20:00:00',
+    image: 'https://picsum.photos/seed/music/600/400',
+    featured: true,
+  },
+  {
+    id: 2,
+    title: 'بطولة كرة القدم المحلية',
+    short_description: 'المباراة النهائية لتحديد بطل المدينة لهذا العام.',
+    description: 'لا تفوتوا المباراة النهائية المثيرة في بطولة كرة القدم المحلية. تنافس حماسي وأجواء رياضية رائعة بانتظاركم في الملعب البلدي.',
+    category: EventCategory.Sports,
+    location: 'الملعب البلدي',
+    event_date: '2025-10-25T18:00:00',
+    image: 'https://picsum.photos/seed/soccer/600/400',
+    featured: true,
+  },
+  {
+    id: 3,
+    title: 'معرض الفن التشكيلي المعاصر',
+    short_description: 'استكشف أعمال فنانين محليين وعالميين في الفن الحديث.',
+    description: 'يقدم معرض الفن التشكيلي المعاصر مجموعة متنوعة من اللوحات والمنحوتات والأعمال التركيبية التي تعكس أحدث التوجهات الفنية. فرصة فريدة للتواصل مع الفن والفنانين.',
+    category: EventCategory.Culture,
+    location: 'غاليري الفنون',
+    event_date: '2025-11-05T10:00:00',
+    image: 'https://picsum.photos/seed/art/600/400',
+  },
+  {
+    id: 4,
+    title: 'مهرجان العائلة المرح',
+    short_description: 'يوم مليء بالأنشطة والألعاب لجميع أفراد العائلة.',
+    description: 'اقضوا يوماً لا ينسى في مهرجان العائلة المرح. يتضمن المهرجان ألعاباً ترفيهية، عروضاً بهلوانية، ورش عمل للأطفال، وأكشاك طعام متنوعة لإسعاد الجميع.',
+    category: EventCategory.Family,
+    location: 'حديقة المدينة',
+    event_date: '2025-11-12T11:00:00',
+    image: 'https://picsum.photos/seed/family/600/400',
+    featured: true,
+  },
+    {
+    id: 5,
+    title: 'مؤتمر التقنية المستقبلية',
+    short_description: 'تعرف على أحدث الابتكارات في عالم الذكاء الاصطناعي والبرمجة.',
+    description: 'يجمع مؤتمر التقنية المستقبلية خبراء ومطورين من جميع أنحاء العالم لمناقشة مستقبل التكنولوجيا. ستكون هناك محاضرات رئيسية، جلسات نقاش، وفرص للتواصل.',
+    category: EventCategory.Tech,
+    location: 'مركز المؤتمرات الدولي',
+    event_date: '2025-11-18T09:00:00',
+    image: 'https://picsum.photos/seed/tech/600/400',
+  },
+  {
+    id: 6,
+    title: 'مهرجان طعام الشارع',
+    short_description: 'تذوق أشهى المأكولات من مختلف المطابخ العالمية.',
+    description: 'انغمس في تجربة طهي فريدة في مهرجان طعام الشارع. يقدم البائعون المحليون أفضل ما لديهم، من الأطباق التقليدية إلى الأطباق المبتكرة. أجواء احتفالية وموسيقى حية.',
+    category: EventCategory.Food,
+    location: 'ساحة البلدة القديمة',
+    event_date: '2025-11-22T17:00:00',
+    image: 'https://picsum.photos/seed/food/600/400',
+  },
+];
