@@ -1,21 +1,21 @@
 
 import React from 'react';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider, useAuth } from './contexts/AuthContext';
-import { EventsProvider } from './contexts/EventsContext';
-import { ThemeProvider } from './contexts/ThemeContext';
+import { AuthProvider, useAuth } from './contexts/AuthContext.tsx';
+import { EventsProvider } from './contexts/EventsContext.tsx';
+import { ThemeProvider } from './contexts/ThemeContext.tsx';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
-import ScrollToTopButton from './components/ScrollToTopButton';
+import Header from './components/Header.tsx';
+import Footer from './components/Footer.tsx';
+import ScrollToTopButton from './components/ScrollToTopButton.tsx';
 
-import HomePage from './pages/HomePage';
-import EventsPage from './pages/EventsPage';
-import EventDetailPage from './pages/EventDetailPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
-import LoginPage from './pages/LoginPage';
-import AdminDashboardPage from './pages/AdminDashboardPage';
+import HomePage from './pages/HomePage.tsx';
+import EventsPage from './pages/EventsPage.tsx';
+import EventDetailPage from './pages/EventDetailPage.tsx';
+import AboutPage from './pages/AboutPage.tsx';
+import ContactPage from './pages/ContactPage.tsx';
+import LoginPage from './pages/LoginPage.tsx';
+import AdminDashboardPage from './pages/AdminDashboardPage.tsx';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { isAuthenticated } = useAuth();

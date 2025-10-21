@@ -1,10 +1,10 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useEvents } from '../contexts/EventsContext';
-import EventCard from '../components/EventCard';
+import { useEvents } from '../contexts/EventsContext.tsx';
+import EventCard from '../components/EventCard.tsx';
 import { PARTICIPANTS } from '../constants';
-import { EventCategory } from '../types';
+import { EventCategory } from '../types.ts';
 
 const HomePage: React.FC = () => {
   const { events } = useEvents();

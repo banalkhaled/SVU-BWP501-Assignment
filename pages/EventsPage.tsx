@@ -1,9 +1,9 @@
 
 import React, { useState, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useEvents } from '../contexts/EventsContext';
-import EventCard from '../components/EventCard';
-import { EventCategory } from '../types';
+import { useEvents } from '../contexts/EventsContext.tsx';
+import EventCard from '../components/EventCard.tsx';
+import { EventCategory } from '../types.ts';
 
 const EventsPage: React.FC = () => {
   const { events } = useEvents();

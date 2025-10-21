@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { useEvents } from '../contexts/EventsContext';
-import EventCard from '../components/EventCard';
+import { useEvents } from '../contexts/EventsContext.tsx';
+import EventCard from '../components/EventCard.tsx';
 
 const EventDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();

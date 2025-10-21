@@ -1,6 +1,6 @@
 
 import { GoogleGenAI } from "@google/genai";
-import { EventCategory } from '../types';
+import { EventCategory } from '../types.ts';
 
 export async function generateEventDescription(title: string, category: EventCategory): Promise<string> {
   try {

@@ -1,6 +1,6 @@
 
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { Event } from '../types';
+import { Event } from '../types.ts';
 import { MOCK_EVENTS } from '../constants';
 
 interface EventsContextType {

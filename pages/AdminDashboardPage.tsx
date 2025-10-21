@@ -1,10 +1,10 @@
 
 import React, { useState } from 'react';
-import { useEvents } from '../contexts/EventsContext';
-import { useAuth } from '../contexts/AuthContext';
+import { useEvents } from '../contexts/EventsContext.tsx';
+import { useAuth } from '../contexts/AuthContext.tsx';
 import { useNavigate } from 'react-router-dom';
-import { Event, EventCategory } from '../types';
-import { generateEventDescription } from '../services/geminiService';
+import { Event, EventCategory } from '../types.ts';
+import { generateEventDescription } from '../services/geminiService.ts';
 
 const AdminDashboardPage: React.FC = () => {
   const { events, addEvent, updateEvent, deleteEvent } = useEvents();

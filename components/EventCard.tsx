@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Event } from '../types';
+import { Event } from '../types.ts';
 
 interface EventCardProps {
   event: Event;

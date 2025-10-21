@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
-import ThemeToggle from './ThemeToggle';
+import { useAuth } from '../contexts/AuthContext.tsx';
+import ThemeToggle from './ThemeToggle.tsx';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
