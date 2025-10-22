@@ -5,6 +5,7 @@ import { useEvents } from '../contexts/EventsContext.tsx';
 import EventCard from '../components/EventCard.tsx';
 import { PARTICIPANTS } from '../constants';
 import { EventCategory } from '../types.ts';
+import CategoryBadge from '../components/CategoryBadge';
 
 const HomePage: React.FC = () => {
   const { events } = useEvents();
