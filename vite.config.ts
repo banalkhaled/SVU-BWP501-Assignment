@@ -5,9 +5,9 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
   return {
-    base: '/SVU-BWP501-Assignment/', // <-- set to '/<REPO_NAME>/'
-    server: { port: 3000, host: '0.0.0.0' },
+    base: '/SVU-BWP501-Assignment/',   // <-- IMPORTANT for GitHub Pages
     plugins: [react()],
+    server: { host: '0.0.0.0', port: 3000 },
     define: {
       'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
