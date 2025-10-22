@@ -1,92 +1,70 @@
-
 import React, { useState } from 'react';
-
-type FormStatus = 'idle' | 'success' | 'error';
+type FormStatus = 'idle'|'success'|'error';
 
 const ContactPage: React.FC = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [status, setStatus] = useState<FormStatus>('idle');
-  const [error, setError] = useState('');
+  const [name,setName] = useState('');
+  const [email,setEmail] = useState('');
+  const [message,setMessage] = useState('');
+  const [status,setStatus] = useState<FormStatus>('idle');
+  const [error,setError] = useState('');
 
-  const validateEmail = (email: string) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
+  const validateEmail = (e:string)=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setError('');
-    setStatus('idle');
-
-    if (!name || !email || !message) {
-      setError('يرجى ملء جميع الحقول المطلوبة.');
-      setStatus('error');
-      return;
-    }
-    if (!validateEmail(email)) {
-      setError('الرجاء إدخال عنوان بريد إلكتروني صالح.');
-      setStatus('error');
-      return;
-    }
-
-    // Simulate form submission
-    console.log({ name, email, message });
-    setStatus('success');
-    setName('');
-    setEmail('');
-    setMessage('');
+  const handleSubmit = (ev: React.FormEvent) => {
+    ev.preventDefault();
+    if (!name || !email || !message) { setError('الرجاء تعبئة جميع الحقول'); setStatus('error'); return; }
+    if (!validateEmail(email))      { setError('صيغة البريد غير صحيحة'); setStatus('error'); return; }
+    setStatus('success'); setError('');
+    setName(''); setEmail(''); setMessage('');
   };
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold">اتصل بنا</h1>
-        <p className="text-lg text-gray-600 dark:text-gray-400 mt-2">نحن هنا للإجابة على استفساراتكم واقتراحاتكم.</p>
+    <div className="container bg-white dark:bg-gray-800 p-4 p-md-5 rounded shadow">
+      <div className="text-center mb-4">
+        <h1 className="display-6">اتصل بنا</h1>
+        <p className="text-muted">نحن هنا للإجابة على استفساراتكم.</p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-12">
-        <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
-          <h2 className="text-2xl font-bold mb-6">أرسل رسالة</h2>
-          <form onSubmit={handleSubmit} noValidate>
-            <div className="mb-4">
-              <label htmlFor="name" className="block text-sm font-medium mb-1">الاسم</label>
-              <input type="text" id="name" value={name} onChange={e => setName(e.target.value)} required className="w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 focus:ring-primary focus:border-primary" />
+      <div className="row g-4">
+        <div className="col-12 col-md-6">
+          <h2 className="h5 mb-3">أرسل رسالة</h2>
+          <form onSubmit={handleSubmit} noValidate className="row g-3">
+            <div className="col-12">
+              <label className="form-label" htmlFor="name">الاسم</label>
+              <input className="form-control" id="name" value={name} onChange={e=>setName(e.target.value)} />
             </div>
-            <div className="mb-4">
-              <label htmlFor="email" className="block text-sm font-medium mb-1">البريد الإلكتروني</label>
-              <input type="email" id="email" value={email} onChange={e => setEmail(e.target.value)} required className="w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 focus:ring-primary focus:border-primary" />
+            <div className="col-12">
+              <label className="form-label" htmlFor="email">البريد الإلكتروني</label>
+              <input type="email" className="form-control" id="email" value={email} onChange={e=>setEmail(e.target.value)} />
             </div>
-            <div className="mb-6">
-              <label htmlFor="message" className="block text-sm font-medium mb-1">رسالتك</label>
-              <textarea id="message" value={message} onChange={e => setMessage(e.target.value)} rows={5} required className="w-full p-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 focus:ring-primary focus:border-primary"></textarea>
+            <div className="col-12">
+              <label className="form-label" htmlFor="message">رسالتك</label>
+              <textarea className="form-control" id="message" rows={5} value={message} onChange={e=>setMessage(e.target.value)} />
             </div>
-            <button type="submit" className="w-full bg-primary text-white py-2 rounded-md hover:bg-primary-dark transition-colors">إرسال</button>
+            <div className="col-12">
+              <button className="btn btn-primary w-100" type="submit">إرسال</button>
+            </div>
           </form>
-          {status === 'success' && (
-            <div className="mt-4 p-4 text-green-800 bg-green-100 dark:bg-green-900 dark:text-green-200 border border-green-300 rounded-md">
+
+          {status==='success' && (
+            <div className="alert alert-success mt-3" role="alert">
               تم إرسال رسالتك بنجاح! شكرًا لتواصلك معنا.
             </div>
           )}
-          {status === 'error' && (
-             <div className="mt-4 p-4 text-red-800 bg-red-100 dark:bg-red-900 dark:text-red-200 border border-red-300 rounded-md">
+          {status==='error' && (
+            <div className="alert alert-danger mt-3" role="alert">
               {error}
             </div>
           )}
         </div>
 
-        <div className="space-y-6">
-            <h2 className="text-2xl font-bold mb-6">معلومات التواصل</h2>
-            <div className="flex items-start gap-4">
-                <p><strong>البريد العام:</strong> info@svuevents.com</p>
-            </div>
-            <div className="flex items-start gap-4">
-                <p><strong>حساباتنا:</strong> @SVUEvents على جميع المنصات</p>
-            </div>
+        <div className="col-12 col-md-6">
+          <h2 className="h5 mb-3">معلومات التواصل</h2>
+          <p><strong>البريد العام:</strong> info@svuevents.com</p>
+          <p><strong>حساباتنا:</strong> @SVUEvents على جميع المنصات</p>
         </div>
       </div>
     </div>
   );
 };
-
 export default ContactPage;
