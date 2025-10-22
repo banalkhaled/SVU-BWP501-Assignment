@@ -3,6 +3,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useEvents } from '../contexts/EventsContext';
 import EventCard from '../components/EventCard';
+import CategoryBadge from '../components/CategoryBadge';
 
 const EventDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -27,7 +28,7 @@ const EventDetailPage: React.FC = () => {
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden">
       <img className="w-full h-64 md:h-96 object-cover" src={event.image} alt={event.title} />
       <div className="p-6 md:p-10">
-        <span className="text-sm font-semibold text-primary dark:text-secondary">{event.category}</span>
+        <CategoryBadge category={event.category} />
         <h1 className="text-3xl md:text-4xl font-bold my-3 text-gray-900 dark:text-white">{event.title}</h1>
         
         <div className="flex flex-col md:flex-row md:items-center gap-4 text-gray-600 dark:text-gray-400 mb-6">
