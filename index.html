@@ -1,38 +1,24 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>دليل فعاليات المدينة</title>
 
-    <!-- Tailwind (you already use it) -->
+    <!-- Tailwind in the browser (keep your theme config) -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+@@ -21,11 +20,15 @@
+        },
+      };
+    </script>
 
-    <!-- Bootstrap 5 (CSS) -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css"
-      rel="stylesheet"
-      integrity="sha384-N6oV1Lz0CLz2Q0xbgL8tqyZ0zv7fNeG+q9Xz0iLw0c6d9z0T7y5Ew2c1y7Dq6iXJ"
-      crossorigin="anonymous"
-    />
 
-    <!-- Tajawal font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>body{font-family:'Tajawal',sans-serif}</style>
+
+
+
   </head>
   <body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
     <div id="root"></div>
 
-    <!-- Vite entry -->
-    <script type="module" src="./index.tsx"></script>
-
-    <!-- Bootstrap 5 (JS bundle includes Popper for Modals) -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-q4a2tWQmji6D0jYfQv3Z05u8o6bQkYt1yXc7k1m+9c6xL0m8m0sDgYh0m4W8m2fH"
-      crossorigin="anonymous"
-    ></script>
+    <!-- Vite entry (let Vite bundle your TSX) -->
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
