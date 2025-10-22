@@ -1,5 +1,4 @@
 name: Deploy Vite site to GitHub Pages
-
 on:
   push:
     branches: [ "main" ]
@@ -11,7 +10,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: true
 
 jobs:
@@ -25,13 +24,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
-        # Optional: only if you need the Gemini key at build time.
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
