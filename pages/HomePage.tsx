@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useEvents } from '../contexts/EventsContext.tsx';
@@ -12,6 +11,12 @@ const HomePage: React.FC = () => {
   const featuredEvents = events.filter(e => e.featured).slice(0, 3);
   const latestEvents = events.slice(0, 6);
   const categories = Object.values(EventCategory);
+
+  // Extra names to show alongside yours on the Home page
+  const EXTRA_PARTICIPANTS = [
+    { key: 'tareq-252629', display: 'Tareq_drkznli_252629 - طارق دركزنلي', id: '252629' },
+    { key: 'kinan-238909', display: 'kinan_238909 — كنان الزين', id: '238909' },
+  ];
 
   return (
     <div className="space-y-16">
@@ -60,17 +65,28 @@ const HomePage: React.FC = () => {
       <section>
         <h2 className="text-3xl font-bold text-center mb-8">المشاركون في المشروع</h2>
         <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md max-w-2xl mx-auto">
-            <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-                {PARTICIPANTS.map(participant => (
-                    <li key={participant.id} className="py-4 flex justify-between items-center">
-                        <div>
-                            <p className="text-lg font-medium text-gray-900 dark:text-white">{participant.name}</p>
-                            <p className="text-sm text-gray-500 dark:text-gray-400">{participant.role}</p>
-                        </div>
-                        <p className="text-sm font-mono text-primary dark:text-secondary">ID: {participant.id}</p>
-                    </li>
-                ))}
-            </ul>
+          <ul className="divide-y divide-gray-200 dark:divide-gray-700">
+            {PARTICIPANTS.map(participant => (
+              <li key={participant.id} className="py-4 flex justify-between items-center">
+                <div>
+                  <p className="text-lg font-medium text-gray-900 dark:text-white">{participant.name}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{participant.role}</p>
+                </div>
+                <p className="text-sm font-mono text-primary dark:text-secondary">ID: {participant.id}</p>
+              </li>
+            ))}
+
+            {/* Added names (requested) */}
+            {EXTRA_PARTICIPANTS.map(p => (
+              <li key={p.key} className="py-4 flex justify-between items-center">
+                <div>
+                  <p className="text-lg font-medium text-gray-900 dark:text-white">{p.display}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">مشارك</p>
+                </div>
+                <p className="text-sm font-mono text-primary dark:text-secondary">ID: {p.id}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
     </div>
