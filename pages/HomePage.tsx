@@ -81,7 +81,7 @@ const HomePage: React.FC = () => {
               <li key={p.key} className="py-4 flex justify-between items-center">
                 <div>
                   <p className="text-lg font-medium text-gray-900 dark:text-white">{p.display}</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">مشارك</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">مطوّر</p>
                 </div>
                 <p className="text-sm font-mono text-primary dark:text-secondary">ID: {p.id}</p>
               </li>
